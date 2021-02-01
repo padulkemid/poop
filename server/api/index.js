@@ -1,7 +1,8 @@
-const allProducts = require('./all/get_all_products');
+const all = require('./all');
 
 module.exports = {
   products: {
-    allProducts,
+    allProducts: all.getAllProducts,
+    productById: all.getProductsById,
   },
 };
