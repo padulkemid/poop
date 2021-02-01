@@ -1,7 +1,7 @@
-const allOrders = require('./all/get_all_orders');
+const allProducts = require('./all/get_all_products');
 
 module.exports = {
-  orders: {
-    allOrders,
+  products: {
+    allProducts,
   },
 };

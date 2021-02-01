@@ -1,9 +1,9 @@
 const express = require('express');
 
-const { orders } = require('../api');
+const { products } = require('../api');
 
 const router = express.Router();
 
-router.get('/orders', orders.allOrders);
+router.get('/products', products.allProducts);
 
 module.exports = router;
