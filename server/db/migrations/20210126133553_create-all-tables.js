@@ -18,6 +18,7 @@ exports.up = async (knex) => {
     table.string('password', 127).notNullable();
     table.string('phone', 50).notNullable();
     table.string('address').notNullable();
+    table.timestamps(false, true);
   });
 
   await knex.schema.createTable(tableNames.products, (table) => {
@@ -25,6 +26,7 @@ exports.up = async (knex) => {
     table.string('name').notNullable();
     table.integer('quantity').notNullable();
     table.string('manufacturer').notNullable();
+    table.timestamps(false, true);
   });
 
   await knex.schema.createTable(tableNames.orders, (table) => {
