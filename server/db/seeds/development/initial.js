@@ -33,14 +33,8 @@ exports.seed = async (knex) => {
     order_id: 1,
   };
 
-  const [createdCustomer] = await knex(tableNames.customers).insert(
-    customer,
-    '*'
-  );
-  const [createdProduct] = await knex(tableNames.products).insert(product, '*');
-  const [createdOrder] = await knex(tableNames.orders).insert(order, '*');
-  const [createdShipment] = await knex(tableNames.shipments).insert(
-    shipment,
-    '*'
-  );
+  await knex(tableNames.customers).insert(customer);
+  await knex(tableNames.products).insert(product);
+  await knex(tableNames.orders).insert(order);
+  await knex(tableNames.shipments).insert(shipment);
 };
