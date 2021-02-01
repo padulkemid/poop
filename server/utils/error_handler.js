@@ -1,3 +1,10 @@
+const badRequest = (err, res) => {
+  return res.status(400).json({
+    status: 400,
+    error: err.message,
+  });
+};
+
 const notFound = (err, res) => {
   return res.status(404).json({
     status: 404,
@@ -5,9 +12,19 @@ const notFound = (err, res) => {
   });
 };
 
+const internalServerError = (err, res) => {
+  return res.status(500).json({
+    status: 500,
+    error: err.message,
+  });
+};
+
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (err, _req, res, _next) => {
   switch (err.code) {
+    case '400':
+      badRequest(err, res);
+      break;
     case '404':
       notFound(err, res);
       break;
@@ -15,11 +32,7 @@ const errorHandler = (err, _req, res, _next) => {
       notFound(err, res);
       break;
     default:
-      res.status(500).json({
-        status: 500,
-        error: 'Interal Server Error!',
-        cause: err.message,
-      });
+      internalServerError(err, res);
   }
 };
 
