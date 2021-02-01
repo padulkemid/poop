@@ -1,4 +1,4 @@
-const { tableNames } = require('../../utils/table_utils');
+const { tableNames } = require('~utils/table_utils');
 
 const tableReferences = (table, columnName, tableName) => {
   return table
