@@ -8,6 +8,12 @@ const checkColumnAvailability = (arr, obj) => {
   });
 };
 
+const checkColumnHasKey = (arr, key) => {
+  const keyCheck = arr.find((el) => el === key);
+
+  if (!keyCheck) throw new ErrorWithCode('400', 'Column not exist!');
+};
+
 const checkColumnHasLength = (col) => {
   if (!col.length) {
     throw new ErrorWithCode(
@@ -20,4 +26,5 @@ const checkColumnHasLength = (col) => {
 module.exports = {
   checkColumnAvailability,
   checkColumnHasLength,
+  checkColumnHasKey,
 };
