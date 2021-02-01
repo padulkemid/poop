@@ -5,5 +5,6 @@ module.exports = {
     allProducts: all.getAllProducts,
     productById: all.getProductsById,
     newProduct: all.createProduct,
+    delProductById: all.deleteProductById,
   },
 };
