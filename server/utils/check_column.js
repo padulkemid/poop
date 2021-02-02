@@ -15,7 +15,7 @@ const checkColumnHasKey = (arr, key) => {
 };
 
 const checkColumnHasLength = (col) => {
-  if (!col.length) {
+  if (!col || !col.length) {
     throw new ErrorWithCode(
       '400',
       'Invalid syntax! some column appears to be empty.'
