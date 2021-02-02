@@ -7,5 +7,6 @@ module.exports = {
     newProduct: all.createProduct,
     delProductById: all.deleteProductById,
     patchProductById: all.updateProductById,
+    productByColumns: all.getProductByColumns,
   },
 };
