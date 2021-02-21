@@ -14,5 +14,5 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
-// start the application
+// listens the application
 app.listen(port);
