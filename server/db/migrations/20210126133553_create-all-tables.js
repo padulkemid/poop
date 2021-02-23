@@ -10,6 +10,10 @@ const tableReferences = (table, columnName, tableName) => {
     .notNullable();
 };
 
+const lowerColumnIndex = (indexName, columnName, tableName) => {
+  return `create index ${indexName} on ${tableName} (lower(${columnName}))`;
+};
+
 exports.up = async (knex) => {
   await knex.schema.createTable(tableNames.customers, (table) => {
     table.increments().notNullable();
@@ -28,6 +32,10 @@ exports.up = async (knex) => {
     table.string('manufacturer').notNullable();
     table.timestamps(false, true);
   });
+
+  await knex.schema.raw(
+    lowerColumnIndex('lower_product_name_idx', 'name', tableNames.products)
+  );
 
   await knex.schema.createTable(tableNames.orders, (table) => {
     table.increments().notNullable();
